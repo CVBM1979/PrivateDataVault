@@ -1,26 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sua Página no GitHub Pages</title>
+    <title>Cloud do GitHub</title>
     <style>
         body {
+            font-family: Arial, sans-serif;
             background-color: #f4f4f4;
-            font-family: 'Arial', sans-serif;
-            color: #333;
-            padding: 20px;
-            text-align: center;
+            margin: 40px;
         }
-        a {
-            color: #0077cc;
+        .container {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
             text-decoration: none;
+            outline: none;
+            color: #fff;
+            background-color: #4CAF50;
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 9px #999;
+        }
+        .button:hover {background-color: #3e8e41}
+        .button:active {
+            background-color: #3e8e41;
+            box-shadow: 0 5px #666;
+            transform: translateY(4px);
         }
     </style>
 </head>
 <body>
-    <h1>Bem-vindo à Minha Página no GitHub!</h1>
-    <p>Este é um exemplo de personalização usando HTML e CSS.</p>
-    <a href="caminho/para/seu/arquivo.pdf" download="Nome do Arquivo">Baixar Arquivo</a>
+    <div class="container">
+        <h1>Cloud do GitHub</h1>
+        <p>Você deseja carregar arquivos:</p>
+        <a href="https://github.com/seu-usuario/seu-repositorio/upload/main" target="_blank" class="button">Carregar Arquivo</a>
+        <p>Ou deseja baixar todos os arquivos:</p>
+        <a href="https://github.com/seu-usuario/seu-repositorio/archive/main.zip" class="button">Baixar Todos os Arquivos</a>
+    </div>
 </body>
 </html>
