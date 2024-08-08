@@ -1,19 +1,62 @@
-# Repositório Público
+# PrivateDataVault
 
-Este repositório é utilizado para armazenamento e compartilhamento de arquivos de forma organizada.
+## Descrição
 
-## Como Usar
+Este projeto é uma aplicação web desenvolvida em Flask que permite gerenciar arquivos em um repositório GitHub. A aplicação fornece funcionalidades para fazer upload, download e deletar arquivos no repositório.
 
-Para acessar os arquivos, você pode:
+## Funcionalidades
 
-- **Clonar este repositório** para seu dispositivo local usando:
-- **Baixar arquivos específicos** diretamente do GitHub.
+- Upload de arquivos para um repositório GitHub
+- Download de arquivos do repositório GitHub
+- Deleção de arquivos do repositório GitHub
 
-## Carregar e Baixar Arquivos
+## Estrutura do Projeto
 
-- **Para carregar arquivos:** Você pode adicionar arquivos diretamente através da interface do GitHub ou via linha de comando após adicioná-los ao seu diretório local.
-- **Para baixar arquivos:** Utilize os links fornecidos na página do GitHub para baixar os arquivos desejados.
+PrivateDataVault/
+├── .gitignore
+├── .env.example
+├── README.md
+├── app.py
+├── build_executable.py
+├── MyFlaskApp.spec
+├── requirements.txt
+├── script.js
+├── index.html
+└── dist/
 
-## Contato
+## Requisitos
 
-Para dúvidas ou suporte, contate-nos pelo email: gomeatinga@protonmail.com
+- Python 3.9 ou superior
+- Git
+
+## Instalação
+
+### 1. Clonar o repositório
+
+```bash
+git clone https://github.com/CVBM1979/PrivateDataVault.git
+cd PrivateDataVault
+
+### 2. Configurar o arquivo .env
+
+Crie um arquivo .env e insira o seu GITHUB_TOKEN:
+GITHUB_TOKEN=seu_github_token
+
+### 3. Instalar as dependências
+
+python -m venv venv
+source venv/bin/activate  # No Windows use `venv\Scripts\activate`
+pip install -r requirements.txt
+
+
+### 4. Criar o executável
+
+pyinstaller MyFlaskApp.spec
+
+### 5. Executar o executável
+
+dist/MyFlaskApp/MyFlaskApp.exe > output.log 2>&1
+
+### 6. Acessar a aplicação
+
+index.html

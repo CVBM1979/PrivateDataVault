@@ -4,6 +4,11 @@ import os
 from dotenv import load_dotenv
 from flask_cors import CORS
 import base64
+from waitress import serve
+import logging
+
+# Configurar o logger para escrever em um arquivo
+logging.basicConfig(filename='app.log', level=logging.DEBUG, format='%(asctime)s %(message)s')
 
 app = Flask(__name__)
 load_dotenv()  # Carrega variáveis do arquivo .env
@@ -15,6 +20,11 @@ GITHUB_TOKEN = os.getenv('GITHUB_TOKEN')
 REPO_OWNER = 'CVBM1979'
 REPO_NAME = 'PrivateDataVault'
 BRANCH_NAME = 'main'  # Atualizado para o branch main
+
+@app.route('/')
+def index():
+    app.logger.debug("Index page accessed")
+    return "Hello, World!"
 
 @app.route('/delete_files', methods=['POST'])
 def delete_files_from_branch():
@@ -66,10 +76,12 @@ def delete_files_from_branch():
 def upload_file():
     try:
         if 'file' not in request.files:
+            app.logger.error("No file part in request")
             return jsonify({"error": "No file part"}), 400
 
         file = request.files['file']
         if file.filename == '':
+            app.logger.error("No selected file")
             return jsonify({"error": "No selected file"}), 400
 
         content = file.read()
@@ -95,6 +107,7 @@ def upload_file():
         )
         response.raise_for_status()
 
+        app.logger.info(f"Uploaded file: {file_name}")
         return jsonify({"status": "success", "message": "File uploaded successfully"})
     except requests.exceptions.RequestException as e:
         app.logger.error(f"RequestException: {e}")
@@ -127,6 +140,7 @@ def download_files():
                 zip_file.writestr(file['name'], file_response.content)
 
         buffer.seek(0)
+        app.logger.info("Files downloaded successfully")
         return send_file(buffer, as_attachment=True, download_name='files.zip', mimetype='application/zip')
     except requests.exceptions.RequestException as e:
         app.logger.error(f"RequestException: {e}")
@@ -143,7 +157,8 @@ def get_token():
     return jsonify({"token": GITHUB_TOKEN})
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    serve(app, host='0.0.0.0', port=5000)  # Use Waitress para servir a aplicação em produção
+
 
 
 
