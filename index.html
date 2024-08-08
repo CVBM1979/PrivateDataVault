@@ -1,51 +1,16 @@
 <!DOCTYPE html>
-<html lang="pt">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Cloud do GitHub</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            margin: 40px;
-        }
-        .container {
-            background-color: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 0 10px rgba(0,0,0,0.1);
-        }
-        .button {
-            display: inline-block;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            outline: none;
-            color: #fff;
-            background-color: #4CAF50;
-            border: none;
-            border-radius: 15px;
-            box-shadow: 0 9px #999;
-        }
-        .button:hover {background-color: #3e8e41}
-        .button:active {
-            background-color: #3e8e41;
-            box-shadow: 0 5px #666;
-            transform: translateY(4px);
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GitHub File Manager</title>
 </head>
 <body>
-    <div class="container">
-        <h1>Cloud do GitHub</h1>
-        <p>Acesse sua conta no GitHub:</p>
-        <a href="https://github.com/login" target="_blank" class="button">Login no GitHub</a>
-        <p>Você deseja carregar arquivos:</p>
-        <a href="https://github.com/CVBM1979/PrivateDataVault/upload/download" target="_blank" class="button">Carregar Arquivo</a>
-        <p>Ou deseja baixar todos os arquivos:</p>
-        <a href="https://github.com/CVBM1979/PrivateDataVault/archive/download.zip" class="button">Baixar Todos os Arquivos do Branch 'Download'</a>
-    </div>
+    <h1>GitHub File Manager</h1>
+    <button id="uploadButton">Upload File</button>
+    <button id="downloadButton">Download Files</button>
+    <button id="deleteButton">Delete Files</button>
+
+    <script src="script.js"></script>
 </body>
 </html>
